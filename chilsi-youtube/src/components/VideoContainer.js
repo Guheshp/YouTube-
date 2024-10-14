@@ -9,6 +9,8 @@ import Skeleton from './Skeleton';
 const VideoContainer = () => {
     const [videos, setVideos] = useState([])
     const [load, setLoad] = useState(true)
+    const [nextPageToken, setNextPageToken] = useState(null);
+    const [prevPageToken, setPrevPageToken] = useState(null);
 
     useEffect(() => {
         setTimeout(() => {
@@ -27,7 +29,7 @@ const VideoContainer = () => {
             const response = await fetch(YOUTUBE_API_URL);
             const data = await response.json();
             setVideos(data?.items)
-            // console.log(data?.items)
+            console.log(data)
         } catch (error) {
             console.error('Error fetching videos:', error);
         }
