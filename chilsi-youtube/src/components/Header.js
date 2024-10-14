@@ -39,7 +39,8 @@ const Header = () => {
         dispatch(cacheResult({ [searchQuery]: json[1] }))
     }
     return (
-        <div className='grid grid-flow-col p-5 m-2 shadow-md'>
+
+        <div className='grid grid-flow-col p-3  shadow-md sticky top-0 z-10 bg-white'>
             <div className='flex col-span-1'>
                 <img className='h-7 cursor-pointer' src={HAMBURGER_MENUE} alt="HAMBURGER_MENUE" onClick={() => toggleMenueHandler()} />
 
@@ -80,6 +81,7 @@ const Header = () => {
                 <img className='h-7' src={DEFAULT_USER} alt="" />
             </div>
         </div>
+
     )
 }
 
