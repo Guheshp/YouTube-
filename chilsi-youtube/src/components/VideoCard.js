@@ -1,5 +1,27 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
+const getTimeAgo = (date) => {
+    const publishedDate = new Date(date);
+    const today = new Date();
+
+    const yearDiff = today.getFullYear() - publishedDate.getFullYear();
+    const monthDiff = today.getMonth() - publishedDate.getMonth();
+    const dayDiff = today.getDate() - publishedDate.getDate();
+
+    if (yearDiff > 0) {
+        return yearDiff === 1 ? '1y ago' : `${yearDiff}y ago`;
+    }
+
+    if (monthDiff > 0) {
+        return monthDiff === 1 ? '1m ago' : `${monthDiff}m ago`;
+    }
+
+    if (dayDiff > 0) {
+        return dayDiff === 1 ? '1d ago' : `${dayDiff}d ago`;
+    }
+
+    return 'Today'; // If published today
+};
 
 
 const VideoCard = ({ info }) => {
@@ -12,7 +34,7 @@ const VideoCard = ({ info }) => {
 
     return (
 
-        <div className={' m-2 shadow-lg border rounded-md ' + `${isMenueOpen ? "w-[380px] h-76" : "w-[330px] h-76"}`} >
+        <div className={' m-2  ' + `${isMenueOpen ? "w-[380px] h-76" : "w-[330px] h-76"}`} >
             <img
                 className={'' + `${isMenueOpen ? "w-[380px] rounded-lg" : "w-full rounded-lg"}`}
                 src={snippet?.thumbnails?.medium?.url}
@@ -28,7 +50,8 @@ const VideoCard = ({ info }) => {
                         : statistics.viewCount >= 1000
                             ? `${(statistics.viewCount / 1000).toFixed(1)}k views`
                             : `${statistics.viewCount} views`
-                    : '0 views'}</li>
+                    : '0 views'} <span>{getTimeAgo(snippet?.publishedAt)}</span></li>
+
             </ul>
         </div >
 

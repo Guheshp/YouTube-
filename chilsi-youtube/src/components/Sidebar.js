@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { IoMdHome } from "react-icons/io";
 import { SiYoutubeshorts } from "react-icons/si";
@@ -17,15 +17,29 @@ import { TfiCup } from "react-icons/tfi";
 import { FaRegLightbulb } from "react-icons/fa6";
 import { FaPodcast } from "react-icons/fa6";
 import { SiYoutubekids } from "react-icons/si";
+import { HAMBURGER_MENUE } from '../utils/Helper';
+import { toggleMenue } from '../utils/redux/slices/AppSlice';
+import logo from "../static/yt_logo_rgb_light.png"
 
 const Sidebar = () => {
+    const dispatch = useDispatch()
+    const toggleMenueHandler = () => {
+        dispatch(toggleMenue())
+    }
 
     const isMenueOpen = useSelector(store => store.app.isMenueOpen)
     // console.log(isMenueOpen)
     if (!isMenueOpen) return null
     return (
         <div>
-            <div className='h-full w-[220px] bg-gray-100 shadow-lg overflow-y-auto fixed '>
+            <div className='h-full w-[220px] bg-gray-100 shadow-lg overflow-y-auto fixed z-20 p-3'>
+                <div className='flex col-span-1'>
+                    <img className='h-7 cursor-pointer' src={HAMBURGER_MENUE} alt="HAMBURGER_MENUE" onClick={() => toggleMenueHandler()} />
+
+                    <a href='/'>
+                        <img className='h-7 mx-4' src={logo} alt="logo" />
+                    </a>
+                </div>
                 <div className='my-5'>
 
 
