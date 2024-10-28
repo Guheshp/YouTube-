@@ -10,6 +10,10 @@ export const YOUTUBE_API_URL = `https://youtube.googleapis.com/youtube/v3/videos
 export const YOUTUBE_SEARCH_API = "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
 
 
+export const SIDE_YOUTUBE_API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=programming&type=video&key=${GOOGLE_API_KEY}`
+
+
+
 
 
 

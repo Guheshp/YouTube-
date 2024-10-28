@@ -276,7 +276,7 @@ const AllCommentList = ({ comments }) => {
 
 const Comments = () => {
     return (
-        <div className='m-2 p-3'>
+        <div className='m-2 p-3 '>
             <h1 className='font-bold text-lg'>Comment's:</h1>
             <AllCommentList comments={comments} />
         </div>

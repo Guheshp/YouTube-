@@ -25,7 +25,7 @@ const LiveChat = () => {
 
     return (
         <div>
-            <div className='border p-2 border-black ml-2 h-[560px] bg-slate-100 rounded overflow-y-scroll flex flex-col-reverse m-2'>
+            <div className='border p-2 border-black ml-2 h-[480px] bg-slate-100 rounded overflow-y-scroll flex flex-col-reverse m-2'>
                 {chatMessage.map((c, index) => <ChatMessages key={index} name={c.name} message={c.message} />)}
             </div>
             <form onSubmit={(e) => {
@@ -37,11 +37,12 @@ const LiveChat = () => {
                 }))
                 setLiveMessage("")
                 // console.log("Data on submit", liveMessage)
-            }} className='w-100 p-2 m-3 border border-black'>
-                <input type="text" className="border border-s-0 border-t-0 border-e-0  w-[280px] p-2 border-b-black " name='' value={liveMessage} onChange={(e) => {
-                    setLiveMessage(e.target.value)
-                }} id="" />
-                <button className='border bg-black text-white p-1 rounded'>Submit</button>
+            }} className='w-100 p-2 m-2 border border-black rounded'>
+                <input type="text"
+                    className="border border-s-0 border-t-0  border-e-0  w-[280px] p-2 border-b-black " name='' value={liveMessage} onChange={(e) => {
+                        setLiveMessage(e.target.value)
+                    }} id="" />
+                <button className='border bg-black text-white p-1 rounded '>Submit</button>
             </form>
         </div>
     )
